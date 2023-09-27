@@ -1,0 +1,62 @@
+@use "../colors" as *;
+
+.mainContainer{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 14vh;
+	border-bottom: 1px solid $GrayishBlue;
+}
+
+.logoMenuContainer {
+	display: flex;
+	align-items: center;
+
+	.logoImg {
+		width: 11vw;
+	}
+
+	.menuContainer {
+		display: flex;
+		font-family: 'Kumbh Sans', sans-serif;
+		font-size: 2rem;
+		margin-left: 3rem;
+
+		a {
+			display: flex;
+			align-items: center;
+			height: 14vh;
+			text-decoration: none;
+			color: $DarkGrayishBlue;
+			margin-left: 3rem; 
+
+			&:hover {
+				color: $VeryDarkBlue;
+				border-bottom: 4px solid $Orange;
+			}
+		}
+	}
+}
+
+.cartProfileContainer{
+	display: flex;
+	align-items: center;
+
+	.cartContainer {
+		width: 3rem;
+	}
+
+	.profileContainer {
+		margin-left: 5rem;
+
+		img {
+			width: 4.2vw;
+			border-radius: 100%;
+			cursor: pointer;
+
+			&:hover {
+				border: 2px solid $Orange;
+			}
+		}
+	}
+}

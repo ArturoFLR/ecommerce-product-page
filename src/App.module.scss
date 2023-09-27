@@ -1,2 +1,29 @@
 @use "colors" as *;
 
+.headerContainer {
+	width: 80%;
+	margin: 0vh auto 8vh auto;
+
+}
+
+.mainContaniner {
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	width: 72%;
+	margin: auto;
+
+	.cartContainer {
+		position: absolute;
+		top: -7.5vh;
+		right: 7vw;
+	}
+
+	.slideshowContainer {
+		width: 45%;
+	}
+
+	.productDataContainer {
+		width: 45%;
+	}
+}

@@ -1,0 +1,75 @@
+@use "../colors" as *;
+
+.mainContainer {
+	width: 100%;
+	position: relative;
+
+	.mainImg, .mainImgLB {
+		width: 100%;
+		border-radius: 15px;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			cursor: pointer;
+		}
+	}
+
+	.thumbnails, .thumbnailsLB {
+		display: flex;
+		column-gap: 4.26%;
+		width: 100%;
+		margin-top: 2rem;
+
+		.thumbnail, .thumbnailLB {
+			width: 21.8%;
+			cursor: pointer;
+			border-radius: 15px;
+			transition-property: opacity;
+			transition-duration: 500ms;
+
+			&:hover {
+				opacity: 60%;
+			}
+		}
+
+		.selectedThumbnail, .selectedLBThumbnail {
+			border: 3px solid $Orange;
+			opacity: 35%;
+		}
+	}
+}
+
+.lightBoxContainer {
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100vw;
+	background-color: $BlackLightboxBackground;
+
+	.mainImgLB {
+		width: 35%;
+
+		.closeX {
+			width: 5%;
+		}
+
+		.previous {
+			width: 10%;
+			background-color: $White;
+		}
+
+		.next {
+			width: 10%;
+			background-color: $White;
+		}
+	}
+
+	.thumbnailsLB {
+		width: 35%;
+	}
+}
+
+.hide {
+	display: none;
+}
