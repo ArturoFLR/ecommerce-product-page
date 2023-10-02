@@ -22,7 +22,7 @@ function ProductData() {
 		const itemToAdd = {
 			image: "img/image-product-1-thumbnail.jpg",
 			name: "Fall Limited Edition Sneakers",
-			price: 250,
+			price: 125,
 			amount: cart.amount + counter
 		};
 		setCart(itemToAdd);
@@ -53,7 +53,7 @@ function ProductData() {
 				</div>
 			</div>
 			<button type="button" className={styles.addToCartButton} onClick={handleAddToCartClick}>
-				<img alt="" src="../../public/icon/icon-cart.svg" />
+				<img alt="" src="icon/icon-cart.svg" />
 				<p>Add to cart</p>
 			</button>
 		</div>

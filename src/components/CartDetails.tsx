@@ -32,7 +32,7 @@ function CartDetails() {
 									<p className={styles.productName}>{cart.name}</p>
 									<p className={styles.productPrice}>{`$${cart.price}.00 x ${cart.amount}`} <span>{`$${totalPrice}.00`}</span></p>
 								</div>
-								<img className={styles.productDelete} alt="Delete product" src="../../public/icon/icon-delete.svg" onClick={deleteProduct} />
+								<img className={styles.productDelete} alt="Delete product" src="icon/icon-delete.svg" onClick={deleteProduct} />
 							</div>
 							<button type="button">Checkout</button>
 						</>

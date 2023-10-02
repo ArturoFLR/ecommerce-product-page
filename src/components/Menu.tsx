@@ -34,7 +34,7 @@ function Menu() {
 
 			<div className={styles.mainContainerMobile} id="mainContainerMobile" >
 				<div className={styles.linksContainerMobile}>
-					<img alt="Close menu" src="../../public/icon/icon-close.svg" onClick={handleCloseMenu} />
+					<img alt="Close menu" src="icon/icon-close.svg" onClick={handleCloseMenu} />
 					<a href="#">Collections</a>
 					<a href="#">Men</a>
 					<a href="#">Women</a>
@@ -43,7 +43,7 @@ function Menu() {
 				</div>
 			</div>
 
-			<img className={styles.menuIcon} alt="Main navigation menu" src="../../public/icon/icon-menu.svg" onClick={handleOpenMenu}/>
+			<img className={styles.menuIcon} alt="Main navigation menu" src="icon/icon-menu.svg" onClick={handleOpenMenu}/>
 		</>
 	);
 }

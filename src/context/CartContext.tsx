@@ -15,7 +15,7 @@ type CartProviderProps = {
 const initialCartItem = {
 	image: "img/image-product-1-thumbnail.jpg",
 	name: "Fall Limited Edition Sneakers",
-	price: 250,
+	price: 125,
 	amount: 0
 };
 
