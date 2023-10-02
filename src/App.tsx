@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from "./App.module.scss";
 import CartDetails from "./components/CartDetails";
 import Header from "./components/Header";

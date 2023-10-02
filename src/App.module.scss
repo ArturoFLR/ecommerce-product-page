@@ -44,6 +44,22 @@
 	}	
 }
 
+@media(min-width: 1440px) and (max-height: 900px ) {
+	
+	
+	.mainContainer {
+		width: 67%;
+
+		.slideshowContainer {
+			width: 40%;
+		}
+	
+		.productDataContainer {
+			width: 45%;
+		}
+	}	
+}
+
 @media(max-width: 1100px) {
 
 	.mainContainer {
