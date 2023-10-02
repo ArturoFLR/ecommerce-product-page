@@ -44,9 +44,13 @@ function ProductData() {
 			</div>
 
 			<div className={styles.counter}>
-				<img alt="Add product" src="icon/icon-minus.svg" onClick={handleRemoveProductClick} />
+				<div className={styles.imgContainer} onClick={handleRemoveProductClick} >
+					<img alt="Remove product" src="icon/icon-minus.svg" />
+				</div>
 				<p>{counter}</p>
-				<img alt="Remove product" src="icon/icon-plus.svg" onClick={handleAddProductClick}/>
+				<div className={styles.imgContainer} onClick={handleAddProductClick} >
+					<img alt="Add product" src="icon/icon-plus.svg" />
+				</div>
 			</div>
 			<button type="button" className={styles.addToCartButton} onClick={handleAddToCartClick}>
 				<img alt="" src="../../public/icon/icon-cart.svg" />

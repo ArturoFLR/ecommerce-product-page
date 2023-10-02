@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "./App.module.scss";
 import CartDetails from "./components/CartDetails";
 import Header from "./components/Header";
@@ -6,15 +7,13 @@ import Slideshow from "./components/Slideshow";
 import { CartProvider } from "./context/CartContext";
 
 function App() {
-
-
 	return (
-		<CartProvider>	
+		<CartProvider>
 			<header className={styles.headerContainer}>
 				<Header />
 			</header>
 
-			<main className={styles.mainContaniner}>
+			<main className={styles.mainContainer}>
 				<div className={styles.cartContainer}>
 					<CartDetails />
 				</div>

@@ -1,5 +1,6 @@
 import Cart from "./Cart";
 import styles from "./Header.module.scss";
+import Menu from "./Menu";
 
 function Header() {
 	return (
@@ -8,12 +9,11 @@ function Header() {
 				<img className={styles.logoImg} alt="Sneakers Logo" src="img/logo.svg" />
 
 				<div className={styles.menuContainer}>
-					<a href="#">Collections</a>
-					<a href="#">Men</a>
-					<a href="#">Women</a>
-					<a href="#">About</a>
-					<a href="#">Contact</a>
+					<Menu />
 				</div>
+
+
+
 			</div>
 
 			<div className={styles.cartProfileContainer}>

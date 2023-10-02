@@ -17,24 +17,7 @@
 	}
 
 	.menuContainer {
-		display: flex;
-		font-family: 'Kumbh Sans', sans-serif;
-		font-size: 2rem;
 		margin-left: 3rem;
-
-		a {
-			display: flex;
-			align-items: center;
-			height: 14vh;
-			text-decoration: none;
-			color: $DarkGrayishBlue;
-			margin-left: 3rem; 
-
-			&:hover {
-				color: $VeryDarkBlue;
-				border-bottom: 4px solid $Orange;
-			}
-		}
 	}
 }
 
@@ -56,6 +39,111 @@
 
 			&:hover {
 				border: 2px solid $Orange;
+			}
+		}
+	}
+}
+
+@media(max-width: 1050px) {
+
+	.logoMenuContainer {
+		
+		.logoImg {
+			width: 30vw;
+			order: 2;
+			margin-left: 2rem;
+		}
+
+		.menuContainer{
+			width: 5vw;
+			order: 1;
+			margin-left: 0rem;
+			padding-top: 0.6rem;
+		}
+	}
+
+	.cartProfileContainer{
+	
+		.cartContainer {
+			width: 3.5rem;
+		}
+	
+		.profileContainer {
+			margin-left: 3rem;
+	
+			img {
+				width: 6vw;
+			}
+		}
+	}
+}
+
+@media(max-width: 1000px) {
+
+	.mainContainer{
+		align-items: normal;
+		height: 11rem;
+		border-bottom: 0px;
+	}
+
+	.logoMenuContainer {
+		
+		.logoImg {
+			width: 32vw;
+			margin-left: 2rem;
+		}
+
+		.menuContainer{
+			width: 5.5vw;
+			padding-top: 0.3rem;
+		}
+	}
+
+	.cartProfileContainer{
+
+		.cartContainer {
+			width: 3.5rem;
+		}
+	
+		.profileContainer {
+			margin-left: 2.5rem;
+	
+			img {
+				width: 6.5vw;
+			}
+		}
+	}
+}
+
+@media(max-width: 400px) {
+
+	.mainContainer{
+		height: 7rem;
+	}
+
+	.logoMenuContainer {
+		
+		.logoImg {
+			width: 38vw;
+			margin-left: 1rem;
+		}
+
+		.menuContainer{
+			width: 6vw;
+		}
+	}
+
+	.cartProfileContainer{
+
+		.cartContainer {
+			width: 2.5rem;
+		}
+	
+		.profileContainer {
+			margin-left: 2rem;
+	
+			img {
+				width: 8.5vw;
 			}
 		}
 	}

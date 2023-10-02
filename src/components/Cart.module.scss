@@ -1,5 +1,17 @@
 @use "../colors" as *; 
 
+@keyframes animateBlob {
+	0% {
+		scale: 100%;
+	}
+	50% {
+		scale: 150%
+	}
+	100% {
+		scale: 100%;
+	}
+}
+
 .mainContainer {
 	position: relative;
 	width: 100%;
@@ -26,7 +38,10 @@
 		text-align: center;
 		background-color: $Orange;
 		border-radius: 15px;
+	}
 
+	.animateBlob {
+		animation: animateBlob 0.6s;
 	}
 
 	.hide {

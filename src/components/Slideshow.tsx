@@ -7,7 +7,7 @@ function Slideshow() {
 	const [selectedImgLightBox, setSelectedImgLightBox] = useState(sneakersFLE.images[0]);
 
 	// Change thumbnail classes to show which one is selected. Selecting a thumbnail in the Slideshow will change the same thumbnail in the Lightbox, but the opposite is not true.
-	function changeSelectedThumbnail (element: HTMLImageElement, elementIndex: number): void {
+	function changeSelectedThumbnail (element: HTMLElement, elementIndex: number): void {
 		const allThumbnails = document.querySelectorAll(`.${styles.thumbnail}`);
 		const allThumbnailsLB = document.querySelectorAll(`.${styles.thumbnailLB}`);
 		const isAnLBThumbnail = element.classList.contains(styles.thumbnailLB);
@@ -34,7 +34,7 @@ function Slideshow() {
 
 	// Changes the main image according to the clicked thumbnail. Changing the Slideshow image will also change the Lightbox image, but the opposite is not true. Change the classes of the thumbnails, calling changeSelectedThumbnail().
 	function handleThumbnailClick (event: React.MouseEvent<HTMLImageElement>): void {
-		const selectedThumbnail = event.target as HTMLImageElement;
+		const selectedThumbnail = (event.target as HTMLImageElement).parentElement!;
 		const selectedThumbnailIndex = Number(selectedThumbnail.id);
 		const isAnLBThumbnail = selectedThumbnail.classList.contains(styles.thumbnailLB);
 
@@ -68,7 +68,7 @@ function Slideshow() {
 		const arrowClicked = event.target;
 		const arrowType = (arrowClicked as HTMLElement).id;
 
-		const actualThumbnailSelected = document.querySelector(`.${styles.selectedLBThumbnail}`) as HTMLImageElement;
+		const actualThumbnailSelected = document.querySelector(`.${styles.selectedLBThumbnail}`) as HTMLElement;
 		const actualImgIndex = Number(actualThumbnailSelected.id);
 		const imagesMaxIndex = sneakersFLE.images.length - 1;
 		
@@ -76,13 +76,13 @@ function Slideshow() {
 		const nextThumbnailIndex = actualImgIndex < imagesMaxIndex
 			? actualImgIndex + 1
 			: 0;
-		const nextThumbnail = document.querySelector(`.${styles.thumbnailLB}[id="${nextThumbnailIndex}"]`) as HTMLImageElement;
+		const nextThumbnail = document.querySelector(`.${styles.thumbnailLB}[id="${nextThumbnailIndex}"]`) as HTMLElement;
 		const prevThumbnailIndex = actualImgIndex > 0
 			? actualImgIndex - 1
 			: 3;
-		const prevThumbnail = document.querySelector(`.${styles.thumbnailLB}[id="${prevThumbnailIndex}"]`) as HTMLImageElement;
+		const prevThumbnail = document.querySelector(`.${styles.thumbnailLB}[id="${prevThumbnailIndex}"]`) as HTMLElement;
 
-		// Changes the main image
+		// Changes the main image of the Lightbox
 		if (arrowType === "next" && actualImgIndex < imagesMaxIndex) {
 			setSelectedImgLightBox(sneakersFLE.images[actualImgIndex + 1]);
 		}else if (arrowType === "next" && actualImgIndex === imagesMaxIndex) {
@@ -94,7 +94,7 @@ function Slideshow() {
 			setSelectedImgLightBox(sneakersFLE.images[imagesMaxIndex]);
 		}
 
-		// Changes the selected thumbnail
+		// Changes the selected thumbnail of the Lightbox
 		if (arrowType === "next") {
 			changeSelectedThumbnail(nextThumbnail, nextThumbnailIndex);
 		}else {
@@ -112,18 +112,16 @@ function Slideshow() {
 				{
 					sneakersFLE.thumbnails.map( (element: string, index): React.ReactNode => {
 						return (
-							<div key={`A${index}`} className={styles.thumbnailContainer}>
-								<img 
-									alt="Product thumbnail"
-									src= {element}
-									key={index}
-									id={String(index)}
-									className={index === 0
-										? `${styles.selectedThumbnail} ${styles.thumbnail}`
-										: `${styles.thumbnail}`
-									}
-									onClick={handleThumbnailClick}
-								/>
+							<div 
+								key={index}
+								id={String(index)}
+								className={index === 0
+									? `${styles.selectedThumbnail} ${styles.thumbnail}`
+									: `${styles.thumbnail}`
+								}
+								onClick={handleThumbnailClick}
+							>
+								<img alt="Product thumbnail" src= {element}	id={String(index)} />
 							</div>
 						);
 					})
@@ -131,31 +129,33 @@ function Slideshow() {
 			</div>
 
 			<div className={`${styles.lightBoxContainer} ${styles.hide}`}  id="lightBoxContainer" onClick={closeLightbox}>
-				<div className={styles.mainImgLB}>
+				<div className={styles.mainImgLBContainer}>
 					<img alt="Close Lightbox" src="icon/icon-close.svg" className={styles.closeX}  id="closeX" onClick={closeLightbox}/>
-					<div  className={styles.previous} >
-						<img alt="Close Lightbox" src="icon/icon-previous.svg" id="previous" onClick={handleArrowClick}/>
+					<div  className={styles.previous}  onClick={handleArrowClick} id="previous">
+						<img alt="Previous image" src="icon/icon-previous.svg" id="previous"/>
 					</div>
-					<div  className={styles.next} >
-						<img alt="Close Lightbox" src="icon/icon-next.svg" id="next" onClick={handleArrowClick} />
+					<div  className={styles.next}  onClick={handleArrowClick} id="next" >
+						<img alt="Next image" src="icon/icon-next.svg" id="next"/>
 					</div>
-					<img alt="Product image" src={selectedImgLightBox}/>
+					<img className={styles.mainImgLB} alt="Product image" src={selectedImgLightBox}/>
 				</div>
 
 				<div className={styles.thumbnailsLB}>
 					{
 						sneakersFLE.thumbnails.map( (element: string, index): React.ReactNode => {
-							return <img 
-								alt="Product thumbnail"
-								src= {element}
-								key={index}
-								id={String(index)}
-								className={index === 0
-									? `${styles.selectedLBThumbnail} ${styles.thumbnailLB}`
-									: `${styles.thumbnailLB}`
-								}
-								onClick={handleThumbnailClick}
-							/>;
+							return (
+								<div
+									key={index}
+									id={String(index)}
+									onClick={handleThumbnailClick}
+									className={index === 0
+										? `${styles.selectedLBThumbnail} ${styles.thumbnailLB}`
+										: `${styles.thumbnailLB}`
+									}
+								>
+									<img alt="Product thumbnail" src= {element}	id={String(index)}/>
+								</div>
+							);
 						})
 					}
 				</div>

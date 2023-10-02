@@ -1,0 +1,139 @@
+@use "../colors" as *;
+
+.mainContainer {
+	display: flex;
+	width: 100%;
+	font-family: 'Kumbh Sans', sans-serif;
+	font-size: 2rem;
+
+	a {
+		display: flex;
+		align-items: center;
+		height: 14vh;
+		text-decoration: none;
+		color: $DarkGrayishBlue;
+		margin-left: 3rem;
+		transition-property: color;
+		transition-duration: 0.4s;
+
+		&:hover {
+			color: $VeryDarkBlue;
+			border-bottom: 4px solid $Orange;
+			padding-top: 4px;
+		}
+	}
+}
+
+.mainContainerMobile{
+	display: none;
+}
+
+.menuIcon {
+	display: none;
+}
+
+@media(max-width: 1050px) {
+
+	.mainContainer{
+		display: none;
+	}
+
+	.mainContainerMobile {
+		display: none;
+		position: fixed;
+		top: 0%;
+		left: 0%;
+		width: 100vw;
+		height: 100vh;
+		background-color: $BlackLightboxBackground;
+		z-index: 5;
+
+		.linksContainerMobile{
+			display: flex;
+			flex-direction: column;
+			position: fixed;
+			top: 0%;
+			left: 0%;
+			width: 65%;
+			height: 100vh;
+			padding: 3rem;
+			background-color: $White;
+
+			a {
+				text-decoration: none;
+				color: $Black;
+				font-weight: 700;
+				font-size: 2rem;
+				font-family: 'Kumbh Sans', sans-serif;
+				margin-top: 3rem;
+			}
+
+			img {
+				width: 25px;
+				margin-bottom: 2rem;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.menuMobile {
+		display: block;
+		animation: mobileBackgroundOpening 1.5s ease-out;
+
+		.linksContainerMobile {
+			animation: mobileOpening 1s ease-out;
+		}
+	}
+
+	.menuMobileClosing {
+		display: block;
+		animation: mobileBackgroundClosing 1.05s ease-in;
+
+		.linksContainerMobile {
+			animation: mobileClosing 1.05s ease-in;
+		}
+	}
+
+	.menuIcon {
+		display: block;
+		width: 70%;
+		cursor: pointer;
+	}
+}
+
+
+@keyframes mobileOpening {
+	0% {
+		left: -60%;
+	}
+	100% {
+		left: 0%;
+	}
+}
+
+@keyframes mobileBackgroundOpening {
+	0% {
+		background-color: transparent;
+	}
+	100% {
+		background-color: $BlackLightboxBackground;
+	}
+}
+
+@keyframes mobileClosing {
+	0% {
+		left: 0%;
+	}
+	100% {
+		left: -80%;
+	}
+}
+
+@keyframes mobileBackgroundClosing {
+	0% {
+		background-color: $BlackLightboxBackground;
+	}
+	100% {
+		background-color: transparent;
+	}
+}
